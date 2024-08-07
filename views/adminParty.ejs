@@ -1,0 +1,112 @@
+<link rel="stylesheet" href="/css/adminParty.css">
+
+<section class="box-data">
+    <h1 class="headingText">Party</h1>
+    <div class="boxes">
+        <div class="box">
+            <div class="boxHeading">Total Parties</div>
+            <div class="Number-icon">
+                <p id="totalParties" class="tNumber">0</p>
+                <i class="fa-solid fa-e" style="color: #2589f6; font-size: 30px;"></i>
+            </div>
+        </div>
+        <div class="box">
+            <div class="boxHeading">Current Election</div>
+            <div class="Number-icon">
+                <p id="currentElection" class="tNumber">0</p>
+                <i class="fa-solid fa-c" style="color: #2589f6; font-size: 30px;"></i>
+            </div>
+        </div>
+        <div class="box">
+            <div class="boxHeading">Election Result Announced</div>
+            <div class="Number-icon">
+                <p id="electionResultAnnounced" class="tNumber">0</p>
+                <i class="fa-solid fa-v" style="color: #2589f6; font-size: 30px;"></i>
+            </div>
+        </div>
+        <div class="box">
+            <div class="boxHeading">Election Result Not Accounced</div>
+            <div class="Number-icon">
+                <p id="electionResultNotAnnounced" class="tNumber">0</p>
+                <i class="fa-solid fa-v" style="color: #2589f6; font-size: 30px;"></i>
+            </div>
+        </div>
+
+    </div>
+</section>
+<section class="voterTally">
+    <h1 class="headingText">All Parties</h1>
+    <div class="container">
+        <button type="button" class="btn btn-primary btn-sm" id="btnAddNewParty" onclick="openPopup()"><i class="fa-solid fa-circle-plus" style="color: #ffffff;"></i> Add New
+            Party</button>
+
+    </div>
+    <!-- Popup Form -->
+    <div class="popup" id="popup">
+        <div class="close-btn">&times;</div>
+        <!-- <h2>Add Party!</h2> -->
+        <form class="row g-3 needs-validation" action="/party/register" method="post" novalidate>
+            
+                <div class="col-md-6">
+                    <label for="validationCustom01" class="form-label">Party Name</label>
+                    <input type="text" name="partyName" class="form-control" id="validationCustom01" required>
+                    <div class="invalid-feedback">
+                        Please provide the party name.
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="validationCustom02" class="form-label">Party Sign</label>
+                    <input type="text" name="partySign" class="form-control" id="validationCustom02" required>
+                    <div class="invalid-feedback">
+                        Please provide the party sign.
+                    </div>
+                </div>    
+                <div class="col-12">
+                    <div class="text-end">
+                        <button class="btn btn-primary" id="btnSave" type="submit">Save</button>
+                    </div>
+                </div>
+            </form>
+    </div>
+    <div class="tableElection">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Party Name</th>
+                    <th scope="col">Party Sign</th>
+                    <th scope="col">Created By</th>
+
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <% parties.forEach((party, index) => { %>
+                    <tr id="partyRow_<%= party._id %>">
+                        <th scope="row"><%= index + 1 %></th>
+                        <td><%= party.Name %></td>
+                        <td><%= party.Sign %></td>
+                        <td><%= party.CreatedBy && party.CreatedBy.UserName ? party.CreatedBy.UserName : "" %></td>
+                        
+                        <td>
+                            <button onclick="editElection(
+                                '<%= party._id %>',
+                                '<%= party.Name %>',
+                                '<%= party.Sign %>'
+                            )" class="btn btn-primary btn-sm">
+                                <i class="fa-solid fa-pen-to-square" style="color: #ffffff;"></i> Edit
+                            </button>
+                        </td>
+                        <td>
+                            <button onclick="deleteParty('<%= party._id %>')" class="btn btn-primary btn-sm"><i class="fas fa-trash-alt"></i> Delete</button>
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+    
+</section>
+<script src="/js/adminParty.js"></script>

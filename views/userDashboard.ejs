@@ -1,0 +1,37 @@
+<link rel="stylesheet" href="/css/adminElection.css">
+<div class="tableElection tableElectionCandidate">
+    <h3>My Voting History</h3>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Voted To</th>
+                <th scope="col">Election Name</th>
+                <th scope="col">Election Type</th>
+                <th scope="col">Election Province</th>
+                <th scope="col">Election City</th>
+                <th scope="col">Election Region</th>
+                <th scope="col">Vote Date</th>
+             
+
+            </tr>
+        </thead>
+        <tbody>
+            <% votes.forEach((vote, index) => { %>
+                <tr id="voteRow_<%= vote._id %>">
+                    <th scope="row"><%= index + 1 %></th>
+                    <td><%= vote.CandidateId.FirstName + ' ' + vote.CandidateId.LastName %></td>
+                    <td><%= vote.ElectionId.Name %></td>
+                    <td><%= vote.ElectionId.ElectionType %></td>
+                    <td><%= vote.ElectionId.Province %></td>
+                    <td><%= vote.ElectionId.City %></td>
+                    <td><%= vote.ElectionId.Region %></td>
+                    <td><%= vote.createdAt.toLocaleDateString() %></td>
+                </tr>
+            <% }) %>
+                
+        </tbody>
+        
+        
+        
+    </table>

@@ -1,0 +1,125 @@
+<link rel="stylesheet" href="/css/adminAccount.css">
+    <section class="box-data">
+        <h1 class="headingText">Account Information</h1>
+        <div class="formContainer">
+
+            <form class="row g-3 needs-validation" novalidate>
+                <div class="col-md-4">
+                    <label for="validationCustom01" class="form-label">First Name</label>
+                    <input type="text" class="form-control" name="firstName" id="validationCustom01" value="<%= details[0].FirstName %>" required>
+                    <div class="invalid-feedback">
+                        Please provide the first name.
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label for="validationCustom02" class="form-label">Last Name</label>
+                    <input type="text" class="form-control" name="lastName" id="validationCustom02" value="<%= details[0].LastName %>" required>
+                    <div class="invalid-feedback">
+                        Please provide the last name.
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label for="validationCustom03" class="form-label">Date of Birth</label>
+                    <input type="date" class="form-control" name="dob" id="validationCustom03" <% if (details[0] && details[0].DOB) { %>value="<%= new Date(details[0].DOB).toISOString().split('T')[0] %>" <% } else { %>value="" <% } %>required>
+                    <div class="invalid-feedback">
+                        Please provide the date of birth.
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="validationCustomUsername" class="form-label">Username</label>
+                    <div class="input-group has-validation">
+                        <span class="input-group-text" id="inputGroupPrepend">@</span>
+                        <input type="text" class="form-control" name="userName" id="validationCustomUsername" aria-describedby="inputGroupPrepend" value="<%= details[0].UserId.UserName %>" required>
+                        <div class="invalid-feedback">
+                            Please choose a username.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="validationCustom04" class="form-label">Password</label>
+                    <input type="text" class="form-control" name="password"  id="validationCustom04" value="<%= details[0].UserId.Password %>" required>
+                    <div class="invalid-feedback">
+                        Please provide a password.
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="validationCustom05" class="form-label">Email</label>
+                    <input type="email" class="form-control" name="email" id="validationCustom05"  value="<%= details[0].UserId.Email %>"  required>
+                    <div class="invalid-feedback">
+                        Please provide a valid email address.
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="validationCustom06" class="form-label">Present Address</label>
+                    <input type="text" class="form-control" name="address" id="validationCustom06" value="<%= details[0].Address %>" required>
+                    <div class="invalid-feedback">
+                        Please provide the present address.
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="validationCustom07" class="form-label">CNIC</label>
+                    <input type="text" class="form-control" name="cnic" id="validationCustom07" value="<%= details[0].CNIC %>"required>
+                    <div class="invalid-feedback">
+                        Please provide a valid CNIC number.
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="validationCustom08" class="form-label">Phone Number</label>
+                    <input type="text" class="form-control" name="phoneNumber" id="validationCustom08" value="<%= details[0].PhoneNumber %>" required>
+                    <div class="invalid-feedback">
+                        Please provide a valid phone number.
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="validationCustom06" class="form-label">Province</label>
+                    <select class="form-select" name="province" id="validationCustom06" required>
+                        <option disabled value="">Choose...</option>
+                        <option value="Punjab" <% if (details[0].Province === 'Punjab') { %> selected <% } %> >Punjab</option>
+                        <option value="Sindh" <% if (details[0].Province === 'Sindh') { %> selected <% } %> >Sindh</option>
+                        <option value="KPK" <% if (details[0].Province === 'KPK') { %> selected <% } %> >KPK</option>
+                        <option value="Balochistan" <% if (details[0].Province === 'Balochistan') { %> selected <% } %> >Balochistan</option>
+                        <option value="Islamabad" <% if (details[0].Province === 'Islamabad') { %> selected <% } %> >Islamabad</option>
+                    </select>
+                    <div class="invalid-feedback">
+                        Please select the province.
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <label for="validationCustom07" class="form-label">City</label>
+                    <select class="form-select" name="city" id="validationCustom07" required>
+                        <option selected disabled value="">Choose...</option>
+                        <% const cities = [
+                            "Karachi", "Lahore", "Faisalabad", "Rawalpindi", "Gujranwala", "Peshawar",
+                            "Multan", "Hyderabad", "Islamabad", "Quetta", "Bahawalpur", "Sargodha",
+                            "Sialkot", "Sukkur", "Rahim Yar Khan", "Sheikhupura", "Daharki", "Narowal",
+                            "Tando Muhammad Khan", "Kamber Ali Khan", "Mirpur Mathelo", "Kandhkot", "Bhalwal"
+                        ]; %>
+                        <% cities.forEach(city => { %>
+                            <option value="<%= city %>" <% if (details[0].City === city) { %> selected <% } %> ><%= city %></option>
+                        <% }); %>
+                    </select>
+                    <div class="invalid-feedback">
+                        Please select the city.
+                    </div>
+                </div>
+    
+                    <div class="col-md-6">
+                        <label for="validationCustom08" class="form-label">Region</label>
+                        <select class="form-select" name="region" id="validationCustom08" required>
+                            <option selected disabled value="">Choose...</option>
+                            <option value="UET" <% if (details[0].Region === 'UET') { %> selected <% } %> >UET</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Please select the region.
+                        </div>
+                    </div>
+                <div class="col-12">
+                    <div class="text-end">
+                        <button onclick="editAccount('<%= details[0].UserId._id %>')" class="btn btn-primary" id="btnSave" type="submit">Save</button>
+                    </div>
+                </div>
+            </form>      
+        </div>
+    </section>
+ <script src="/js/adminAccount.js"></script>

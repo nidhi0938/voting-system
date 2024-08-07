@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Election System</title>
+    <link rel="icon" href="/images/logo.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="/css/header.css">   
+    <link rel="stylesheet" href="/css/signup.css">  
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <!-- <img src="your-logo.png" alt="Your Logo"> -->
+                <h1>ONLINE ELECTION SYSTEM</h1>
+
+            </div>
+            <ul class="menu">
+                <div class="links">
+
+                    <li class="navlinks-item"><a href="#">Home</a></li>
+                    <li class="navlinks-item"><a href="#">About</a></li>
+                    <li class="navlinks-item"><a href="#">Info</a></li>
+                    <li class="navlinks-item"><a href="#">Contact</a></li>
+                </div>
+                </div>
+                <% if (page === 'login') { %>
+                    <button class="btn" id="btn-SignUp"><a href="/SignUp" >SIGN UP</a></button>
+                <% } else if (page === 'signup') { %>
+                    <button class="btn" id="btn-SignIn">SIGN IN</button>
+                <% } %>
+                </div>
+            </ul>
+        </nav>
+    </header>
+    
+    <div>
+        <!-- Placeholder for page-specific content -->
+        <%- include(page) %>
+    </div>
+
+    <footer>
+        <!-- Footer content -->
+    </footer>
+
+
+</body>
+</html>

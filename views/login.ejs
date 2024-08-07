@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="mainImage">
+
+        <img src="/images/main.png" alt="">
+    </div>
+    <div class="login-form">
+        <!-- Your login form content here -->
+        <h1>User Login</h1>
+        <form action="" method="post" novalidate>
+            <div class="user input">
+                <i class="fa-solid fa-user"></i>
+                <input type="text" name="UserName" placeholder="Enter your Username or Email" class="username">
+            </div>
+            <div class="password input">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" name="Password" placeholder="Enter your Password" class="Password">                
+            </div>
+            <p ><a href="" class="forget">Forget Password?</a></p>
+            <button onclick="login()" type="submit"  class="login-btn" id="btnLogin">Login</button>
+        </form>
+        <p class="forget create">Don't have an account? <a href="/SignUp" class="forget"> Sign up Here</a></p>
+        <script src="/js/login.js"></script>
+
+    </div>
+</div>

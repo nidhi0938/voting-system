@@ -1,0 +1,266 @@
+<link rel="stylesheet" href="/css/adminCandidate.css">
+
+<section class="box-data">
+    <h1 class="headingText">Candidate</h1>
+    <div class="boxes">
+        <div class="box">
+            <div class="boxHeading">Total Candidates</div>
+            <div class="Number-icon">
+                <p id="totalElection" class="tNumber">0</p>
+                <i class="fa-solid fa-e" style="color: #2589f6; font-size: 30px;"></i>
+            </div>
+        </div>
+        <div class="box">
+            <div class="boxHeading">Total Candidate Currently Election</div>
+            <div class="Number-icon">
+                <p id="currentElection" class="tNumber">0</p>
+                <i class="fa-solid fa-c" style="color: #2589f6; font-size: 30px;"></i>
+            </div>
+        </div>
+        <div class="box">
+            <div class="boxHeading">Candidate Disqualified</div>
+            <div class="Number-icon">
+                <p id="electionResultAnnounced" class="tNumber">0</p>
+                <i class="fa-solid fa-v" style="color: #2589f6; font-size: 30px;"></i>
+            </div>
+        </div>
+        <div class="box">
+            <div class="boxHeading">Candidate by Parties</div>
+            <div class="Number-icon">
+                <p id="electionResultNotAnnounced" class="tNumber">0</p>
+                <i class="fa-solid fa-v" style="color: #2589f6; font-size: 30px;"></i>
+            </div>
+        </div>
+
+    </div>
+</section>
+<section class="voterTally">
+    <h1 class="headingText">All Candidates</h1>
+    <div class="container">
+        <button type="button" class="btn btn-primary btn-sm" id="btnAddNewCandidate"><i class="fa-solid fa-circle-plus"
+                style="color: #ffffff;"></i> Add Candidate</button>
+
+    </div>
+    <!-- Popup Form -->
+    <div class="popup" id="popup">
+        <div class="close-btn">&times;</div>
+        <!-- <h2>Add Candidate!</h2> -->
+        <form class="row g-3 needs-validation" action="/candidate/register" method="post" novalidate>
+
+            <div class="col-md-6">
+                <label for="validationCustom01" class="form-label">First Name</label>
+                <input type="text" name="firstName" class="form-control" id="validationCustom01" required>
+                <div class="invalid-feedback">
+                    Please provide the first name.
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label for="validationCustom02" class="form-label">Last Name</label>
+                <input type="text" name="lastName" class="form-control" id="validationCustom02" required>
+                <div class="invalid-feedback">
+                    Please provide the last name.
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label for="validationCustom03" class="form-label">Date of Birth</label>
+                <input type="date" name="dob" class="form-control" id="validationCustom03" required>
+                <div class="invalid-feedback">
+                    Please provide the Date of Birth.
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label for="validationCustom04" class="form-label">CNIC</label>
+                <input type="number" name="cnic" class="form-control" id="validationCustom04" required>
+                <div class="invalid-feedback">
+                    Please provide the correct cnic.
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label for="validationCustom05" class="form-label">Phone Number</label>
+                <input type="text" name="phoneNumber" class="form-control" id="validationCustom05" required>
+                <div class="invalid-feedback">
+                    Please provide the phone Number.
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label for="validationCustom06" class="form-label">Province</label>
+                <select class="form-select" name="province" id="validationCustom06" required>
+                    <option selected disabled value="">Choose...</option>
+                    <option value="Punjab">Punjab</option>
+                    <option value="Sindh">Sindh</option>
+                    <option value="KPK">KPK</option>
+                    <option value="Balochistan">Balochistan</option>
+                    <option value="Islamabad">Islamabad</option>
+
+                </select>
+                <div class="invalid-feedback">
+                    Please select the province.
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label for="validationCustom07" class="form-label">City</label>
+                <select class="form-select" name="city" id="validationCustom07" required>
+                    <option selected disabled value="">Choose...</option>
+                    <option value="Karachi">Karachi</option>
+                    <option value="Lahore">Lahore</option>
+                    <option value="Faisalabad">Faisalabad</option>
+                    <option value="Rawalpindi">Rawalpindi</option>
+                    <option value="Gujranwala">Gujranwala</option>
+                    <option value="Peshawar">Peshawar</option>
+                    <option value="Multan">Multan</option>
+                    <option value="Hyderabad">Hyderabad</option>
+                    <option value="Islamabad">Islamabad</option>
+                    <option value="Quetta">Quetta</option>
+                    <option value="Bahawalpur">Bahawalpur</option>
+                    <option value="Sargodha">Sargodha</option>
+                    <option value="Sialkot">Sialkot</option>
+                    <option value="Sukkur">Sukkur</option>
+                    <option value="Rahim Yar Khan">Rahim Yar Khan</option>
+                    <option value="Sheikhupura">Sheikhupura</option>
+                    <!-- Add other cities here -->
+                    <option value="Daharki">Daharki</option>
+                    <option value="Narowal">Narowal</option>
+                    <option value="Tando Muhammad Khan">Tando Muhammad Khan</option>
+                    <option value="Kamber Ali Khan">Kamber Ali Khan</option>
+                    <option value="Mirpur Mathelo">Mirpur Mathelo</option>
+                    <option value="Kandhkot">Kandhkot</option>
+                    <option value="Bhalwal">Bhalwal</option>
+                </select>
+                <div class="invalid-feedback">
+                    Please select the city.
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <label for="validationCustom08" class="form-label">Region</label>
+                <select class="form-select" name="region" id="validationCustom08" required>
+                    <option selected disabled value="">Choose...</option>
+                    <option value="UET">UET</option>
+                </select>
+                <div class="invalid-feedback">
+                    Please select the region.
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label for="validationCustom09" class="form-label">Address</label>
+                <input type="text" name="address" class="form-control" id="validationCustom09" required>
+                <div class="invalid-feedback">
+                    Please provide the address.
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label for="validationCustom10" class="form-label">Party</label>
+                <select class="form-select select-text" name="party" id="validationCustom10" required>
+                    <option selected disabled value="">Choose...</option>
+                    <% parties.forEach(party=> { %>
+                        <option value="<%= party.id %>">
+                            <%= party.formattedName %>
+                        </option>
+                        <% }); %>
+                </select>
+                <div class="invalid-feedback">
+                    Please select a valid Candidate.
+                </div>
+            </div>
+
+
+            <div class="col-12">
+                <div class="text-end">
+                    <button class="btn btn-primary" id="btnSave" type="submit">Save</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="tableElection">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Party</th>
+
+                    <th scope="col">Date of Birth</th>
+                    <th scope="col">CNIC</th>
+                    <th scope="col">Phone Number</th>
+                    <th scope="col">Province</th>
+                    <th scope="col">City </th>
+                    <th scope="col">Region</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Created By</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <% candidates.forEach((candidate, index)=> { %>
+                    <tr id="candidateRow_<%= candidate._id %>">
+                        <th scope="row">
+                            <%= index + 1 %>
+                        </th>
+                        <td>
+                            <%= candidate.FirstName %>
+                        </td>
+                        <td>
+                            <%= candidate.LastName %>
+                        </td>
+                        <td>
+                            <%= candidate.PartyId && candidate.PartyId.Name ? candidate.PartyId.Name + '-' + (candidate.PartyId.Sign || '') : '' %>
+                        </td>
+                        
+                        
+                        <td>
+                            <%= candidate.DOB.toLocaleDateString() %>
+                        </td>
+                        <td>
+                            <%= candidate.CNIC %>
+                        </td>
+                        <td>
+                            <%= candidate.PhoneNumber %>
+                        </td>
+                        <td>
+                            <%= candidate.Province %>
+                        </td>
+                        <td>
+                            <%= candidate.City %>
+                        </td>
+                        <td>
+                            <%= candidate.Region %>
+                        </td>
+                        <td>
+                            <%= candidate.Address %>
+                        </td>
+                        <td>
+                            <%= candidate.CreatedBy.UserName %>
+                        </td>
+                        <td>
+                            <button onclick="editCandidate(
+                                '<%= candidate._id %>',
+                                '<%= candidate.FirstName %>',
+                                '<%= candidate.LastName %>',
+                                '<%= candidate.DOB %>',
+                                '<%= candidate.CNIC %>',
+                                '<%= candidate.PhoneNumber %>',
+                                '<%= candidate.Province %>',
+                                '<%= candidate.City %>',
+                                '<%= candidate.Region %>',
+                                '<%= candidate.Address %>',
+                                '<%= candidate.PartyId.Name + '-' + candidate.PartyId.Sign %>',
+                                '<%= candidate.CreatedBy.UserName %>'
+                            )" class="btn btn-primary btn-sm">
+                                <i class="fa-solid fa-pen-to-square" style="color: #ffffff;"></i> Edit
+                            </button>
+                        </td>
+                        <td>
+                            <button onclick="deleteCandidate('<%= candidate._id %>')" class="btn btn-primary btn-sm"><i
+                                    class="fas fa-trash-alt"></i> Delete</button>
+                        </td>
+                    </tr>
+                    <% }) %>
+            </tbody>
+        </table>
+    </div>
+
+</section>
+<script src="/js/adminCandidate.js"></script>

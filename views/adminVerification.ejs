@@ -1,0 +1,53 @@
+<link rel="stylesheet" href="/css/adminVerification.css">
+
+    <section class="box-data">
+        <h1 class="headingText">VERIFICATION</h1>
+        <div class="tableVerification">
+            <h1 class="headingText headingTextV">Verification Pending: <span id="tVerificationPending"><%= tUsers %></span></h1>
+
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">UserName</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">DOB</th>
+                    <th scope="col">CNIC</th>
+                    <th scope="col">Phone Number</th>
+                    <th scope="col">Province</th>
+                    <th scope="col">City</th>
+
+                    <th scope="col">Region</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Province</th>
+
+
+                  </tr>
+                </thead>
+                <tbody>
+                  <% users.forEach((user, index) => { %>
+                    <tr id="userRow_<%= user._id %>">
+                        <th scope="row"><%= index + 1 %></th>
+                        <td><%= user.FirstName + ' ' + user.LastName %></td>
+                        <td><%= user.UserId && user.UserId.UserName ? user.UserId.UserName : '' %></td>
+                        <td><%= user.UserId && user.UserId.Email ? user.UserId.Email : '' %></td>
+                        <td><%= user.DOB ? user.DOB.toLocaleDateString() : '' %></td>
+                        <td><%= user.CNIC ? user.CNIC : '' %></td>
+                        <td><%= user.PhoneNumber ? user.PhoneNumber : '' %></td>
+                        <td><%= user.Province ? user.Province : '' %></td>
+                        <td><%= user.City ? user.City : '' %></td>
+                        <td><%= user.Region ? user.Region : '' %></td>
+                        <td><%= user.Address ? user.Address : '' %></td>
+                        <td>
+                            <button onclick="verifyUser('<%= user._id %>')" class="btn btn-primary btn-sm"><i class="fa-solid fa-check"></i> Verify</button>
+                        </td>
+                    </tr>
+                <% }) %>
+                
+                  
+              </tbody>
+              </table>
+        </div>
+    </section>
+    <script   src="/js/adminVerification.js"></script>

@@ -1,0 +1,210 @@
+<link rel="stylesheet" href="/css/adminElection.css">
+
+<section class="box-data">
+    <h1 class="headingText">ELECTIONS</h1>
+    <div class="boxes">
+        <div class="box">
+            <div class="boxHeading">Total Election</div>
+            <div class="Number-icon">
+                <p id="totalElection" class="tNumber">0</p>
+                <i class="fa-solid fa-e" style="color: #2589f6; font-size: 30px;"></i>
+            </div>
+        </div>
+        <div class="box">
+            <div class="boxHeading">Current Election</div>
+            <div class="Number-icon">
+                <p id="currentElection" class="tNumber">0</p>
+                <i class="fa-solid fa-c" style="color: #2589f6; font-size: 30px;"></i>
+            </div>
+        </div>
+        <div class="box">
+            <div class="boxHeading">Election Result Announced</div>
+            <div class="Number-icon">
+                <p id="electionResultAnnounced" class="tNumber">0</p>
+                <i class="fa-solid fa-v" style="color: #2589f6; font-size: 30px;"></i>
+            </div>
+        </div>
+        <div class="box">
+            <div class="boxHeading">Election Result Not Accounced</div>
+            <div class="Number-icon">
+                <p id="electionResultNotAnnounced" class="tNumber">0</p>
+                <i class="fa-solid fa-v" style="color: #2589f6; font-size: 30px;"></i>
+            </div>
+        </div>
+
+    </div>
+</section>
+<section class="voterTally">
+    <h1 class="headingText">All Election</h1>
+    <div class="container">
+        <button type="button" class="btn btn-primary btn-sm" id="btnAddNewElection" onclick="openPopup()"> <i class="fa-solid fa-circle-plus" style="color: #ffffff;"></i> Add New
+            Election</button>
+
+    </div>
+    <!-- Popup Form -->
+    <div class="popup" id="popup">
+        <div class="close-btn">&times;</div>
+        <!-- <h2>Add Election!</h2> -->
+
+        <form class="row g-3 needs-validation" action="/election/register" method="post" novalidate>
+                <div class="col-md-4">
+                    <label for="validationCustom01" class="form-label">Election Name</label>
+                    <input type="text" name="electionName" class="form-control" id="validationCustom01" required>
+                    <div class="invalid-feedback">
+                        Please provide the election name.
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label for="validationCustom02" class="form-label">Start Date</label>
+                    <input type="date" name="startDate" class="form-control" id="validationCustom02" required>
+                    <div class="invalid-feedback">
+                        Please provide the start date.
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label for="validationCustom03" class="form-label">End Date</label>
+                    <input type="date" name="endDate" class="form-control" id="validationCustom03" required>
+                    <div class="invalid-feedback">
+                        Please provide the end date.
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label for="validationCustom04" class="form-label">Province</label>
+                    <select class="form-select" name="province" id="validationCustom04" required>
+                      <option selected disabled value="">Choose...</option>
+                      <option value="Punjab">Punjab</option>
+                      <option value="Sindh">Sindh</option>
+                      <option value="KPK">KPK</option>
+                      <option value="Balochistan">Balochistan</option>
+                      <option value="Islamabad">Islamabad</option>
+
+                    </select>
+                    <div class="invalid-feedback">
+                      Please select a valid province.
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <label for="validationCustom05" class="form-label">City</label>
+                    <select class="form-select" name="city" id="validationCustom05" required>
+                      <option selected disabled value="">Choose...</option>
+                      <option value="Karachi">Karachi</option>
+                      <option value="Lahore">Lahore</option>
+                      <option value="Faisalabad">Faisalabad</option>
+                      <option value="Rawalpindi">Rawalpindi</option>
+                      <option value="Gujranwala">Gujranwala</option>
+                      <option value="Peshawar">Peshawar</option>
+                      <option value="Multan">Multan</option>
+                      <option value="Hyderabad">Hyderabad</option>
+                      <option value="Islamabad">Islamabad</option>
+                      <option value="Quetta">Quetta</option>
+                      <option value="Bahawalpur">Bahawalpur</option>
+                      <option value="Sargodha">Sargodha</option>
+                      <option value="Sialkot">Sialkot</option>
+                      <option value="Sukkur">Sukkur</option>
+                      <option value="Rahim Yar Khan">Rahim Yar Khan</option>
+                      <option value="Sheikhupura">Sheikhupura</option>
+                      <!-- Add other cities here -->
+                      <option value="Daharki">Daharki</option>
+                      <option value="Narowal">Narowal</option>
+                      <option value="Tando Muhammad Khan">Tando Muhammad Khan</option>
+                      <option value="Kamber Ali Khan">Kamber Ali Khan</option>
+                      <option value="Mirpur Mathelo">Mirpur Mathelo</option>
+                      <option value="Kandhkot">Kandhkot</option>
+                      <option value="Bhalwal">Bhalwal</option>                    </select>
+                    <div class="invalid-feedback">
+                      Please select a valid city.
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <label for="validationCustom06" class="form-label">Region</label>
+                    <select class="form-select" name="region" id="validationCustom06" required>
+                      <option selected disabled value="">Choose...</option>
+                      <option>UET</option>
+                    </select>
+                    <div class="invalid-feedback">
+                      Please select a valid region.
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                      <label for="validationCustom07" class="form-label">Election Type</label>
+                      <input type="text" name="electionType" class="form-control" id="validationCustom07" required>
+                      <div class="invalid-feedback">
+                          Please provide a valid election type.
+                      </div>
+                  </div>
+                <div class="col-md-12">
+                    <label for="validationCustom08" class="form-label">Description</label>
+                    <input type="text" name="description" class="form-control" id="validationCustom08" required>
+                    <div class="invalid-feedback">
+                        Please provide a password.
+                    </div>
+                </div>
+                
+                <div class="col-12">
+                    <div class="text-end">
+                        <button class="btn btn-primary" id="btnSave" type="submit">Save</button>
+                    </div>
+                </div>
+            </form>
+    </div>
+    <div class="tableElection">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Election Name</th>
+                    <th scope="col">Election Type</th>
+                    <th scope="col">Province</th>
+                    <th scope="col">City</th>
+                    <th scope="col">Region</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Start Date</th>
+                    <th scope="col">End Date</th>
+                    <th scope="col">Created By</th>
+
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <% elections.forEach((election, index) => { %>
+                    <tr id="electionRow_<%= election._id %>">
+                        <th scope="row"><%= index + 1 %></th>
+                        <td><%= election.Name %></td>
+                        <td><%= election.ElectionType %></td>
+                        <td><%= election.Province %></td>
+                        <td><%= election.City %></td>
+                        <td><%= election.Region %></td>
+                        <td><%= election.Description %></td>
+                        <td><%= election.StartDate.toLocaleDateString() %></td>
+                        <td><%= election.StartDate.toLocaleDateString() %></td>
+                        <td><%= election.CreatedBy && election.CreatedBy.UserName ? election.CreatedBy.UserName : "" %></td>
+
+
+                        <td>
+                            <button onclick="editElection(
+                                '<%= election._id %>',
+                                '<%= election.Name %>',
+                                '<%= election.ElectionType %>',
+                                '<%= election.Province %>',
+                                '<%= election.City %>',
+                                '<%= election.Region %>',
+                                '<%= election.Description %>',
+                                '<%= election.StartDate %>',
+                                '<%= election.EndDate %>'
+                            )" class="btn btn-primary btn-sm">
+                                <i class="fa-solid fa-pen-to-square" style="color: #ffffff;"></i> Edit
+                            </button>
+                        </td>
+                        <td>
+                            <button onclick="deleteElection('<%= election._id %>')" class="btn btn-primary btn-sm"><i class="fas fa-trash-alt"></i> Delete</button>
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+    
+</section>
+<script   src="/js/adminElection.js"></script>

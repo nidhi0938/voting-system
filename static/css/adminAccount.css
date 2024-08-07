@@ -1,0 +1,248 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+ul {
+    list-style: none;
+}
+
+:root {
+    --textColor: #7b68ee;
+    --textColor2: #2589f6;
+    --colorblack: #000;
+    --bgcolor: #fff;
+    --colorwhite: #fff;
+    --btnHoverColor: #4070F4;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #EDEDED;
+}
+
+.links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 30px;
+    cursor: pointer;
+    text-transform: uppercase;
+
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+/* Style the logo */
+.logo h1 {
+    color: var(--colorwhite);
+    font-size: 18px;
+
+}
+
+.upper-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    padding: 0 20px;
+    background-color: var(--textColor2);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    height: 50px;
+}
+
+.mainHeader {
+
+    box-shadow: 0px 4px 4px -2px rgba(0, 0, 0, 0.6);
+    background-color: #fff;
+    position: fixed;
+    top: 50px;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    height: 60px;
+}
+
+
+.lower-navbar {
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+
+
+
+
+
+
+
+.linksIcon {
+    display: flex;
+    align-items: center;
+    margin: 0 8px;
+}
+
+.link-item {
+    color: rgb(96, 93, 93);
+    text-decoration: none;
+    text-align: center;
+    margin-left: 5px;
+    margin-top: 8px;
+}
+
+.searchBar {
+    border: 2px solid white;
+    padding: 3px 3px;
+    border-radius: 4px;
+    margin-left: 80px;
+}
+
+.searchBarInput {
+    outline: none;
+    border: none;
+    padding: 2px 2px;
+    background-color: transparent;
+}
+
+.searchBar i {
+    color: white;
+    cursor: pointer;
+    margin: 0 3px;
+}
+
+.searchBarInput::placeholder {
+    color: white;
+    /* Change this to your desired color */
+    font-style: italic;
+    /* Optional: Change other styles */
+}
+
+.upperIcons {
+    margin-right: 30px;
+}
+
+.upperIcons i {
+    margin: 0 6px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+
+.btn {
+    color: var(--colorwhite);
+    background-color: var(--textColor2);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1;
+    transition: transform .2s cubic-bezier(.785, .135, .15, .86), background-color .2s cubic-bezier(.785, .135, .15, .86);
+    letter-spacing: .4px;
+    padding: 0 20px;
+    height: 28px;
+    color: #fff;
+    border-radius: 7px;
+    cursor: pointer;
+    /* box-shadow: 0 5px 20px #7b68ee80; */
+    border: 2px solid white;
+
+}
+
+.btn:hover {
+    background-color: var(--btnHoverColor);
+}
+
+.linksIcon .searchBar {
+    border: 2px solid white;
+    padding: 3px 3px;
+    border-radius: 4px;
+    margin-left: 80px;
+}
+
+.searchBarInput {
+    outline: none;
+    border: none;
+    padding: 2px 2px;
+    background-color: transparent;
+    width: 200px;
+    color: white;
+
+}
+
+.searchBar i {
+    color: white;
+    cursor: pointer;
+    margin: 0 3px;
+}
+
+.searchBarInput::placeholder {
+    color: white;
+    /* Change this to your desired color */
+    font-style: italic;
+    /* Optional: Change other styles */
+}
+
+.upperIcons {
+    margin-right: 30px;
+}
+
+.upperIcons i {
+    margin: 0 6px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.headingText {
+    text-decoration: underline;
+    font-size: 22px;
+    
+    color: #666;
+    margin: 15px 10px;
+}
+
+.box-data {
+    position: relative;
+    top: 130px;
+    left: 10px;
+
+}
+
+
+#btnSave{
+    border-radius: 8px;
+    padding:8px 8px;
+    height: 35px;
+    width: 180px;
+    font-size: 18px;
+}
+.formContainer{
+    background-color: white;
+    border-radius: 8px;
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding: 40px 20px;
+    
+
+    
+}
+.form-control{
+    border: 2px solid #d6d2d2;
+}
+select{
+    height: 35px;
+}

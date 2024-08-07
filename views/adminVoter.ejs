@@ -1,0 +1,82 @@
+<link rel="stylesheet" href="/css/adminVoter.css">
+
+    <section class="box-data">
+        <h1 class="headingText">Voters</h1>
+        <div class="boxes">
+            <div class="box">
+                <div class="boxHeading">Total Voter Voted</div>
+                <div class="Number-icon">
+                    <p id="totalVoterVoted" class="tNumber">0</p>
+                    <i class="fa-solid fa-e" style="color: #2589f6; font-size: 30px;"></i>
+                </div>
+            </div>
+            <div class="box">
+                <div class="boxHeading">Voter Voted in Current Election</div>
+                <div class="Number-icon">
+                    <p id="voterVotedInCurrentElection" class="tNumber">0</p>
+                    <i class="fa-solid fa-c" style="color: #2589f6; font-size: 30px;"></i>
+                </div>
+            </div>
+            <div class="box">
+                <div class="boxHeading">Most Voted Party</div>
+                <div class="Number-icon">
+                    <p id="mostVotedParty" class="tNumber">0</p>
+                    <i class="fa-solid fa-v" style="color: #2589f6; font-size: 30px;"></i>
+                </div>
+            </div>
+            <div class="box">
+                <div class="boxHeading">Most Voted Candidate</div>
+                <div class="Number-icon">
+                    <p id="mostVotedCandidate" class="tNumber">0</p>
+                    <i class="fa-solid fa-v" style="color: #2589f6; font-size: 30px;"></i>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <section class="voterTally">
+        <h1 class="headingText">All Voters</h1>
+        <!-- <div class="container">
+            <button type="button" class="btn btn-primary btn-sm" id="btnAddNewElection">Add New Election</button>
+
+        </div> -->
+        <input type="text" class="cd-search table-filter" data-table="order-table" placeholder="Item to filter.." />
+        <div class="tableElection">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Voter UserName</th>
+                        <th scope="col">Voter Email</th>
+                        <th scope="col">Voted To</th>
+                        <th scope="col">Election Name</th>
+                        <th scope="col">Election Type</th>
+                        <th scope="col">Election Province</th>
+                        <th scope="col">Election City</th>
+                        <th scope="col">Election Region</th>
+                        <th scope="col">Vote Date</th>
+                     
+        
+                    </tr>
+                </thead>
+                <tbody>
+                    <% votes.forEach((vote, index) => { %>
+                        <tr id="voteRow_<%= vote._id %>">
+                            <th scope="row"><%= index + 1 %></th>
+                            <td><%= vote.UserId.UserName %></td>
+                            <td><%= vote.UserId.Email %></td>
+
+                            <td><%= vote.CandidateId.FirstName + ' ' + vote.CandidateId.LastName %></td>
+                            <td><%= vote.ElectionId.Name %></td>
+                            <td><%= vote.ElectionId.ElectionType %></td>
+                            <td><%= vote.ElectionId.Province %></td>
+                            <td><%= vote.ElectionId.City %></td>
+                            <td><%= vote.ElectionId.Region %></td>
+                            <td><%= vote.createdAt.toLocaleDateString() %></td>
+                        </tr>
+                    <% }) %>
+                        
+                </tbody>
+              </table>
+        </div>
+    </section>

@@ -1,0 +1,38 @@
+<link rel="stylesheet" href="/css/adminElection.css">
+
+<section class="box-data box-data2">
+    <form class="row g-3 needs-validation" action="" method="post" novalidate>
+        <div class="col-md-12">
+            <label for="validationCustom01" class="form-label">Election</label>
+            <select class="form-select select-text" name="election" id="validationCustom01" required>
+                <option selected disabled value="">Choose...</option>
+                <% elections.forEach(election => { %>
+                    <option value="<%= election.id %>"><%= election.formattedValue %></option>
+                <% }); %>
+            </select>
+            <div class="invalid-feedback">
+                Please select a valid Election.
+            </div>
+        </div>
+        
+        
+          <div class="col-md-12">
+            <label for="validationCustom02" class="form-label">Candidate</label>
+            <select class="form-select select-text" name="candidate" id="validationCustom02" required>
+              <option selected disabled value="">Choose...</option>
+              <% candidates.forEach(candidate => { %>
+                <option value="<%= candidate.id %>"><%= candidate.formattedName %></option>
+            <% }); %>
+            </select>
+            <div class="invalid-feedback">
+              Please select a valid Candidate.
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="text-end">
+                <button onclick="castVote()" class="btn btn-primary new-btn" id="btnSave" type="submit">Cast Vote</button>
+            </div>
+        </div>
+    </form>
+
+    <script   src="/js/userCastVote.js"></script>

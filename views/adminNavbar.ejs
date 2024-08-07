@@ -1,0 +1,128 @@
+<!-- This is Admin Navbar ejs page with  -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Admin</title>
+    <link rel="icon" href="/images/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/adminNavbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <!-- <link rel="stylesheet" href="/css/AdminDashboard.css"> -->
+
+</head>
+
+<body>
+    <header>
+        <nav class="upper-navbar">
+            <div class="logo">
+                <!-- <img src="your-logo.png" alt="Your Logo"> -->
+                <h1 style="font-weight: 600; margin-top: 10px;">ONLINE ELECTION SYSTEM</h1>
+                <div class="searchBar">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                    <input type="text" name="search" placeholder="Search Now" class="searchBarInput">
+
+                </div>
+            </div>
+            <div class="upperIcons">
+                <i class="fa-solid fa-envelope" style="color: #ffffff;"></i>
+                <i class="fa-solid fa-bell" style="color: #ffffff;"></i>
+                <i id="userIcon" class="fa-solid fa-user" style="color: #ffffff;"></i>
+            </div>
+            <div id="userOptions" class="userOptions">
+                <ul>
+                    <li><a href="/profile">Profile</a></li>
+                    <li><a href="/logout">Logout</a></li>
+                    <!-- Add more options if needed -->
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="mainHeader">
+        <nav class="lower-navbar">
+            <div class="linksIcon">
+                <a href="/admin/dashboard" class="link-item">
+                    <i class="fa-solid fa-house" style="color: #2589f6; font-size: 20px;"></i>
+                    DASHBOARD
+                </a>
+            </div>
+            <div class="linksIcon">
+                <a href="/admin/election" class="link-item">
+                    <i class="fa-solid fa-box" style="color: #2589f6; font-size: 20px;"></i>
+                    ELECTION
+                </a>
+            </div>
+            <div class="linksIcon">
+                <a href="/admin/party" class="link-item">
+                    <i class="fa-solid fa-person-dots-from-line" style="color: #2589f6; font-size: 20px;"></i>
+                    PARTY
+                </a>
+            </div>
+            <div class="linksIcon">
+                <a href="/admin/candidate" class="link-item">
+                    <i class="fa-solid fa-person-dots-from-line" style="color: #2589f6; font-size: 20px;"></i>
+                    CANDIDATES
+                </a>
+            </div>
+            <div class="linksIcon">
+                <a href="/admin/electionCandidate" class="link-item">
+                    <i class="fa-solid fa-person-dots-from-line" style="color: #2589f6; font-size: 20px;"></i>
+                    ELECTION CANDIDATES
+                </a>
+            </div>
+            <div class="linksIcon">
+                <a href="/admin/voters" class="link-item">
+                    <i class="fa-solid fa-person-booth" style="color: #2589f6; font-size: 20px;"></i>
+                    VOTERS
+                </a>
+            </div>
+            <div class="linksIcon">
+                <a href="/admin/electionresult" class="link-item">
+                    <i class="fa-solid fa-square-poll-vertical" style="color: #2589f6; font-size: 20px;"></i>
+                    ELECTION RESULT
+                </a>
+            </div>
+            <div class="linksIcon">
+                <a href="/admin/verification" class="link-item">
+                    <i class="fa-solid fa-person-circle-check" style="color: #2589f6; font-size: 20px;"></i>
+                    VERIFICATION
+                </a>
+            </div>
+            <div class="linksIcon">
+                <a href="/admin/account" class="link-item">
+                    <i class="fa-solid fa-address-card" style="color: #2589f6; font-size: 20px;"></i>
+                    ACCOUNT
+                </a>
+            </div>
+            <div class="linksIcon">
+                <a href="/" class="link-item" id="logoutLink">
+                    <i class="fa-solid fa-circle-arrow-left" style="color: #2589f6; font-size: 20px;"></i>
+                    LOGOUT
+                </a>
+            </div>
+
+        </nav>
+    </div>
+
+    <div>
+        <!-- Placeholder for page-specific content -->
+        <%- include(page) %>
+    </div>
+
+    <footer>
+        <!-- Footer content -->
+    </footer>
+    <script src="/js/adminNavbar.js"></script>
+
+</body>
+
+</html>

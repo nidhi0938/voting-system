@@ -1,0 +1,28 @@
+.userOptions {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    z-index: 1000;
+}
+
+.userOptions ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.userOptions ul li {
+    padding: 5px 0;
+}
+
+.userOptions ul li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+/* Show the user options when active */
+.userOptions.active {
+    display: block;
+}

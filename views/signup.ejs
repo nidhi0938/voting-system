@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="mainImage">
+
+        <img src="/images/main.png" alt="">
+    </div>
+    <div class="signup-form">
+        <!-- Your login form content here -->
+        <h1>User Registration</h1>
+        <form action="/users" method="post" id="SignUp-form"> <!-- Pointing to the correct endpoint -->
+            <div class="input-row">
+                <input type="text" name="firstName" id="FirstName" placeholder="First Name" class="firstName">
+                <input type="text" name="lastName" id="LastName" placeholder="Last Name" class="lastName">
+            </div>
+            
+
+            <div class="input-row">
+                <input type="text" name="userName" id="UserName" placeholder="User Name" class="userName">
+                <input type="email" name="email" id="Email" placeholder="Email" class="email"> <!-- Changed to 'email' for consistency -->
+            </div>
+           
+            <div class="input-row">
+                <input type="password" name="password" id="Password" placeholder="Password" class="password">
+                <input type="password" name="confirmPassword" id="CPassword" placeholder="Confirm Password" class="confirmPassword">
+            </div>
+            <button type="submit" class="signUp-btn">Sign Up</button>
+            <p class="signIn">Already have an account? <a href="/" class="forget"> Sign in Here</a></p>
+        </form>
+        
+        <div class="popup" id="popup">
+            <img src="/images/tick.png" alt="">
+            <!-- <div class="close-btn">&times;</div> -->
+            <h2>Thank You!</h2>
+            <p>You are successfully registered.Thanks!</p>
+            <button type="button" onclick="closePopup()">OK</button>
+        </div>
+
+    </div>
+</div>
+<script src="/js/signup.js"></script>

@@ -1,0 +1,52 @@
+<link rel="stylesheet" href="/css/adminDashboard.css">
+    <section class="box-data">
+        <h1 class="headingText">DASHBOARD</h1>
+        <div class="boxes">
+            <div class="box">
+                <div class="boxHeading">Number of Election</div>
+                <div class="Number-icon">
+                    <p id="NumberOfElection" class="tNumber"><%= telections %></p>
+                    <i class="fa-solid fa-box" style="color: #2589f6; font-size: 30px;"></i>
+                </div>
+            </div>
+            
+            <div class="box">
+                <div class="boxHeading">Number of Candidates</div>
+                <div class="Number-icon">
+                    <p id="NumberOfCandidate" class="tNumber"><%= telections %></p>
+                    <i class="fa-solid fa-person-dots-from-line" style="color: #2589f6; font-size: 30px;"></i>
+                </div>
+            </div>
+            <div class="box">
+                <div class="boxHeading">Total Users</div>
+                <div class="Number-icon">
+                    <p id="NumberOfVoter" class="tNumber"><%= tUser %></p>
+                    <i class="fa-solid fa-person-circle-check" style="color: #2589f6; font-size: 30px;"></i>
+                </div>
+            </div>
+            <div class="box">
+                <div class="boxHeading">Voter's Voted</div>
+                <div class="Number-icon">
+                    <p id="NumberOfVoterVoted" class="tNumber">0</p>
+                    <i class="fa-solid fa-person-booth" style="color: #2589f6; font-size: 30px;"></i>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+    <section class="voterTally">
+        <h1 class="headingText">Voter Tally</h1>
+        <div class="container">
+            <select class="form-select form-select-sm" aria-label="Small select example">
+                <option selected disabled value="">Choose...</option>
+                <% elections.forEach(election => { %>
+                    <option value="<%= election.id %>"><%= election.formattedValue %></option>
+                <% }); %>
+              </select>
+        </div>
+        <div class="voterTallyGraph">
+            <!-- <div class="bar" style="height: 100px;"></div>
+            <div class="bar" style="height: 80px;"></div>
+            <div class="bar" style="height: 120px;"></div> -->
+        </div>
+    </section>
